@@ -18,7 +18,7 @@ public class NoSqlDatabase implements DatabaseOperations<MongoDatabase> {
 
     @Override
     public void createTable(MongoDatabase mongoDb) {
-        if(mongoDb.getCollection("employees") != null) {
+        if (mongoDb.getCollection("employees") != null) {
             mongoDb.getCollection("employees").drop();
         }
 
@@ -42,7 +42,7 @@ public class NoSqlDatabase implements DatabaseOperations<MongoDatabase> {
     public void readData(MongoDatabase mongoDb) {
         MongoCollection<Document> collection = mongoDb.getCollection("employees");
         FindIterable<Document> result = collection.find();
-        for(Document doc : result) {
+        for (Document doc : result) {
             System.out.println(doc);
         }
     }

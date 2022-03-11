@@ -6,19 +6,19 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Orchestrator {
-    private DatabaseOperations dbOp;
+    private DatabaseOperations databaseOperations;
 
-    public Orchestrator(DatabaseOperations dbOp) {
-        this.dbOp = dbOp;
+    public Orchestrator(DatabaseOperations databaseOperations) {
+        this.databaseOperations = databaseOperations;
     }
 
     public void execute() {
         try {
-            Connection connection = (Connection) dbOp.createConnection();
+            Connection connection = (Connection) databaseOperations.createConnection();
 
-            dbOp.createTable(connection);
-            dbOp.insertData(connection);
-            dbOp.readData(connection);
+            databaseOperations.createTable(connection);
+            databaseOperations.insertData(connection);
+            databaseOperations.readData(connection);
 
             connection.close();
         } catch (SQLException e) {

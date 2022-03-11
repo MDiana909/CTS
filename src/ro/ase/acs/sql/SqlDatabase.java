@@ -11,8 +11,8 @@ public class SqlDatabase implements DatabaseOperations<Connection> {
     public Connection createConnection() {
         Connection connection = null;
         try {
-        Class.forName("org.sqlite.JDBC");
-        connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:database.db");
             connection.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
